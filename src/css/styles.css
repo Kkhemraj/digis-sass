@@ -1,0 +1,230 @@
+.table-responsive {
+  box-shadow: 0 0rem 0.5rem rgba(34, 34, 34, 0.15);
+}
+
+body {
+  background-color: #F8F8F8;
+  color: #1e1e1e;
+}
+
+a {
+  display: inline-block;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar {
+  background-color: #222222;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  position: relative;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+}
+.navbar .navbar-nav .nav-item .nav-link::after {
+  content: "";
+  display: inline-block;
+  background-color: transparent;
+  width: 0;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.5s ease-in-out;
+}
+.navbar .navbar-nav .nav-item .nav-link.active, .navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #ff7f27;
+}
+.navbar .navbar-nav .nav-item .nav-link.active::after, .navbar .navbar-nav .nav-item .nav-link:hover::after {
+  width: 100%;
+  background-color: #ff7f27;
+}
+.navbar .nav-right .nav-ico {
+  position: relative;
+  font-size: 1.4rem;
+}
+.navbar .nav-right .nav-ico span {
+  position: absolute;
+  top: -0.1rem;
+  right: -0.4rem;
+  font-size: 0.7rem;
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid #ffffff;
+  background-color: #222222;
+  text-align: center;
+}
+.navbar .nav-right .nav-ico .bi-globe ~ span {
+  border: none;
+  right: -1rem;
+}
+.navbar .nav-right .user-info {
+  color: #f36300;
+  font-weight: bold;
+}
+
+.sidebar {
+  background-color: #E9E9E9;
+  height: 100vh;
+}
+.sidebar > a {
+  color: #1e1e1e;
+  padding: 0.8rem 1.4rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.sidebar .nav-item {
+  padding: 0.4rem 0.7rem;
+}
+.sidebar .nav-item .nav-link {
+  color: #1e1e1e;
+  padding: 0.4rem 0.7rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  border: 1.5px solid #E9E9E9;
+  transition: 0.5s ease-in-out;
+}
+.sidebar .nav-item .nav-link:hover {
+  border-color: #ff7f27;
+  background-color: rgba(255, 127, 39, 0.05);
+}
+.sidebar .nav-item .nav-link i::before {
+  font-weight: 500 !important;
+}
+.sidebar .nav-item.active .nav-link {
+  border-color: #ff7f27;
+  background-color: rgba(255, 127, 39, 0.05);
+}
+
+.main-content .dropdown .dropdown-toggle {
+  font-size: 2.4rem;
+  line-height: 1;
+  font-weight: 500;
+}
+.main-content .dropdown .dropdown-toggle small {
+  font-size: 30%;
+  line-height: 0.72rem;
+  display: block;
+  text-align: left;
+  color: #999999;
+}
+.main-content .dropdown .dropdown-toggle:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 3px solid #1e1e1e;
+  transform: rotate(45deg);
+  border-top: 0;
+  border-left: 0;
+}
+.main-content .form-control {
+  width: 500px;
+}
+.main-content .btn-add {
+  background-color: #ff7f27;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+}
+.main-content h4 {
+  font-weight: bold;
+}
+.main-content .btn-group button {
+  color: #1e1e1e;
+  padding: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.main-content .btn-group button.add {
+  color: #ff7f27;
+}
+
+.table-pagination p {
+  font-size: 0.9rem;
+}
+.table-pagination button {
+  font-size: medium;
+}
+
+.table-responsive {
+  background-color: #ffffff;
+}
+.table-responsive .table .table-header {
+  background-color: #F8F8F8;
+}
+.table-responsive .table .table-header th {
+  color: rgb(178.5, 178.5, 178.5);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.table-responsive .table .table-header th:last-child {
+  width: 1%;
+}
+.table-responsive .table tbody tr td {
+  font-size: 1rem;
+}
+.table-responsive .table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+.table-responsive .table .btn-secondary {
+  background-color: #1e1e1e;
+  border: none;
+}
+
+.notification-dropdown .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.notification-dropdown .dropdown-menu {
+  min-width: 400px;
+  max-width: 500px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.notification-dropdown .dropdown-menu i.bi-bell {
+  font-size: 1rem;
+  margin-right: 0.8rem;
+  color: #ff7f27;
+}
+.notification-dropdown .dropdown-menu .dropdown-item {
+  font-size: 0.9rem;
+}
+.notification-dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #ff7f27;
+  color: #ffffff;
+}
+.notification-dropdown .dropdown-menu .text-muted {
+  color: #666;
+}
+.notification-dropdown .dropdown-menu .btn-outline-primary {
+  color: #1e1e1e;
+  border-color: #1e1e1e;
+}
+.notification-dropdown .dropdown-menu .btn-outline-primary:hover {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+.notification-dropdown .notification-item .fw-bold {
+  font-size: 1rem;
+  color: #222222;
+}
+.notification-dropdown .notification-item .text-muted {
+  font-size: 0.7rem;
+  color: #666;
+}
+.notification-dropdown .notification-item .small {
+  font-size: 0.7rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

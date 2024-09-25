@@ -1,0 +1,312 @@
+@use 'sass:color';
+
+// Variables
+$primary-color: #ff7f27;
+$secondary-color: #1e1e1e;
+$light-bg: #F8F8F8;
+$black: #222222;
+$sidebar-color: #E9E9E9;
+$white: #ffffff;
+$table-hover-color: #f8f9fa;
+$box-shadow: 0 0rem 0.5rem rgba($black, .15);
+$muted-color: #666;
+$icon-color: $primary-color;
+$font-size-xs: 0.7rem; 
+$font-size-sm: 0.9rem; 
+$font-size: 1rem;     
+$font-size-md: 1.4rem; 
+$font-size-lg: 2.4rem;
+
+// Mixin
+@mixin sidemenu-ico-style($pad-val, $ico-size) {
+  color: $secondary-color;
+  padding: $pad-val;
+  font-size: $ico-size;
+  font-weight: bold;
+}
+
+@mixin transition {
+  transition: .5s ease-in-out;
+}
+
+%box-shadow {
+  box-shadow: $box-shadow;
+}
+
+// General Styles
+body {
+  background-color: $light-bg;
+  color: $secondary-color;
+}
+
+a {
+  display: inline-block;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar {
+  background-color: $black;
+
+  
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        position: relative;
+        color: $white;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        @include transition;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          background-color: transparent;
+          width: 0;
+          height: 4px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          @include transition;
+        }
+
+        &.active, &:hover {
+          color: $primary-color;
+          
+          &::after {
+            width: 100%;
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-right {
+    .nav-ico {
+      position: relative;
+      font-size: $font-size-md;
+      span {
+        position: absolute;
+        top: -0.1rem;
+        right: -0.4rem;
+        font-size:$font-size-xs;
+        display: inline-block;
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 1rem;
+        border: 1px solid $white;
+        background-color: $black;
+        text-align: center;
+        
+      }
+      .bi-globe ~ span{
+        border:none;
+        right: -1rem;
+      }
+    }
+
+    .user-info {
+      color: color.adjust($primary-color, $lightness: -10%);
+      font-weight: bold;
+    }
+  }
+}
+
+// Sidebar
+.sidebar {
+  background-color: $sidebar-color;
+  height: 100vh;
+
+  > a {
+    @include sidemenu-ico-style(0.8rem 1.4rem, 1.2rem);
+  }
+
+  .nav-item {
+    padding: 0.4rem 0.7rem;
+
+    .nav-link {
+      @include sidemenu-ico-style(0.4rem 0.7rem, 1.2rem);
+      border-radius: 0.2rem;
+      border: 1.5px solid $sidebar-color;
+      @include transition;
+
+      &:hover {
+        border-color: $primary-color;
+        background-color: rgba($primary-color, 0.05);
+      }
+      i{
+        &::before{font-weight: 500 !important;}
+      }
+    }
+
+    &.active .nav-link {
+      border-color: $primary-color;
+      background-color: rgba($primary-color, 0.05);
+    }
+  }
+}
+
+// Main Content
+.main-content {
+ 
+  .dropdown {
+    .dropdown-toggle {
+      font-size: $font-size-lg;
+      line-height: 1;
+      font-weight: 500;
+
+      small {
+        font-size: 30%;
+        line-height: 0.72rem; 
+        display: block;
+        text-align: left;
+        color: color.adjust($white, $lightness: -40%);
+      }
+
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border: 3px solid $secondary-color;
+        transform: rotate(45deg);
+        border-top: 0;
+        border-left: 0;
+      }
+    }
+  }
+
+  .form-control {
+    width: 500px;
+  }
+
+  .btn-add {
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    padding: 5px 10px;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+
+  .btn-group {
+    button {
+      @include sidemenu-ico-style(0, 2rem);
+
+      &.add {
+        color: $primary-color;
+      }
+    }
+  }
+}
+//table-pagination
+.table-pagination{
+  p{
+      font-size: $font-size-sm;
+  }
+  button{
+font-size: medium;
+  }
+}
+// Table Styles
+.table-responsive {
+  background-color: $white;
+  @extend %box-shadow;
+
+  .table {
+    .table-header {
+      background-color: $light-bg;
+
+      th {
+        color: color.adjust($white, $lightness: -30%);
+        font-weight: 500;
+        font-size: $font-size-sm;
+        &:last-child{width: 1%;}
+      }
+      
+    }
+
+    tbody tr {
+      td{
+        font-size: $font-size;
+      }
+      &:hover {
+        background-color: $table-hover-color;
+      }
+    }
+
+    .btn-secondary {
+      background-color: $secondary-color;
+      border: none;
+    }
+  }
+}
+
+// Notification Dropdown
+.notification-dropdown {
+  .dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .dropdown-menu {
+    min-width: 400px;
+    max-width: 500px;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    i.bi-bell {
+      font-size: $font-size;
+      margin-right: 0.8rem;
+      color: $icon-color;
+    }
+
+    .dropdown-item {
+      font-size: $font-size-sm;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+
+    .text-muted {
+      color: $muted-color;
+    }
+
+    .btn-outline-primary {
+      color: $secondary-color;
+      border-color: $secondary-color;
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $white;
+      }
+    }
+  }
+
+  .notification-item {
+    .fw-bold {
+      font-size: $font-size;
+      color: $black;
+    }
+
+    .text-muted {
+      font-size: $font-size-xs;
+      color: $muted-color;
+    }
+
+    .small {
+      font-size: $font-size-xs;
+    }
+  }
+}
